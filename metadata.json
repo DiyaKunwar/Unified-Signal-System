@@ -1,0 +1,6 @@
+{
+  "name": "Unified Signal System - Congestion Forecast Dashboard",
+  "description": "RTA hackathon prototype: dashboard for a Random Forest congestion forecast trained on synthetic Dubai corridor data, with a Mistral-based multi-agent response assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

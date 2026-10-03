@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-rta-blue: #003C71;
+  --color-rta-blue-hover: #004F94;
+  --color-rta-red: #DA291C;
+  --color-rta-navy: #001F3D;
+}
+
+/* Force Inter font stack on every element by default */
+*, ::before, ::after {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Explicit exception for monospace elements to use the high-quality JetBrains Mono font */
+.font-mono, .font-mono *, code, pre, kbd, samp {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace !important;
+}
+
+
