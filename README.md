@@ -1,17 +1,17 @@
-# Unified Signal System: Congestion Forecast Dashboard
+# Unified Signal System: Congestion Forecast
 
 A prototype built for the RTA (Dubai Roads & Transport Authority) hackathon. It is not an official RTA product.
 
 This is the web front end for a congestion-forecasting pipeline. A Random Forest looks at the **first 7 days** of each month for every corridor and hour, then predicts congestion risk and traffic volume for the **rest of that month**. The dashboard shows the model's 2025 holdout predictions and its evaluation metrics. It also has a 3-agent (Mistral) assistant that drafts responses for an operator to approve.
 
-> **Data is synthetic.** The training data is a simulated Dubai traffic dataset with synthetic number-plate fields. No real vehicles, plates or live feeds are used.
+> **Data is synthetic.** The training data is a simulated Dubai traffic dataset with synthetic number-plate fields. No real vehicles, plates, or live feeds are used.
 
 ## Features
 
 | View | Data source |
 |---|---|
 | Forecast map + 24h heat map | `public/top_predicted_high_risk_corridors_2025_rows.csv`: the model's 2025 holdout predictions, 18 corridors × 24 hours × 12 months |
-| ML Evaluation Studio | `src/data/modelResults.json`: metrics, confusion matrix and feature importance exported by the pipeline |
+| ML Evaluation Studio | `src/data/modelResults.json`: metrics, confusion matrix, and feature importance exported by the pipeline |
 | Predictions DB | The same predictions CSV, as a table |
 | Multi-agent assistant | Mistral `mistral-large-latest` if `MISTRAL_API_KEY` is set, otherwise a local rule-based emulator. Telemetry is **simulated**; no live sensor feed is connected. |
 
@@ -25,7 +25,7 @@ This is the web front end for a congestion-forecasting pipeline. A Random Forest
 | F1 | 94.48% | 93.99% |
 | Volume R² | 0.9706 | 0.9731 |
 
-\*Persistence baseline: assume the rest of the month repeats the first week. On this synthetic data that rule is already strong. The model's main gain is recall, so it misses fewer congested corridor-hours. It does not improve on volume forecasting.
+\*Persistence baseline: assume the rest of the month repeats the first week. On this synthetic data, that rule is already strict. The model's main gain is recall, so it misses fewer congested corridor-hours. It does not improve on volume forecasting.
 
 ## Run locally
 
